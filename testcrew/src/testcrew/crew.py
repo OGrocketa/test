@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 @CrewBase
-class Pdfresearchers:
+class Pdfresearchers():
 	"""Pdfresearchers crew"""
 
 	pdf_source = PDFKnowledgeSource(
