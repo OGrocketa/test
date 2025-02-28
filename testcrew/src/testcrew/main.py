@@ -1,8 +1,4 @@
-
-
 from crew import Pdfresearchers
-
-
 
 def run():
     """

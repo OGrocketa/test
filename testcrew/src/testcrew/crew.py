@@ -3,7 +3,6 @@ from crewai.project import CrewBase, agent, crew, task
 import os 
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
 load_dotenv()
 @CrewBase
 class Pdfresearchers:
@@ -11,11 +10,6 @@ class Pdfresearchers:
 
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
-
-	# groq_llm= LLM(
-	# 	model="groq/llama-3.3-70b-versatile",
-	# 	api_key=os.environ.get('GROQ_API_KEY'),
-	# )
 
 	@agent
 	def joke_creator(self) -> Agent:
