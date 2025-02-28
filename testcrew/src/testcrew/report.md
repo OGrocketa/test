@@ -1,0 +1,10 @@
+- Why did the scarecrow win an award? Because he was outstanding in his field! 🌾🏆  
+- I told my wife she was drawing her eyebrows too high. She looked surprised! 🙈🎨  
+- Why don't scientists trust atoms? Because they make up everything! ⚛️🤥  
+- Parallel lines have so much in common. It’s a shame they’ll never meet! ➖➡️💔  
+- What do you call fake spaghetti? An impasta! 🍝🤭  
+- I'm reading a book on anti-gravity. It's impossible to put down! 📚🚫⬇️  
+- Did you hear about the claustrophobic astronaut? He just needed a little space! 🚀🌌  
+- Why did the bicycle fall over? It was two-tired! 🚲😴  
+- What do you call cheese that isn't yours? Nacho cheese! 🧀😆  
+- Why did the math book look sad? Because it had too many problems! 📖😢🧮
