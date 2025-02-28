@@ -2,3 +2,5 @@
 .env
 poetry.lock
 __pycache__/
+uv.lock
+report.md

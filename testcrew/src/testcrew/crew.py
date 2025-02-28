@@ -1,6 +1,6 @@
-from crewai import Agent, Crew, Process, Task, LLM
+from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
-import os 
+from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -8,20 +8,27 @@ load_dotenv()
 class Pdfresearchers:
 	"""Pdfresearchers crew"""
 
+	pdf_source = PDFKnowledgeSource(
+		file_paths=["ca2-data.pdf", "ca7-pipe.pdf","ca9-caches.pdf"]
+	)
+
+
 	agents_config = 'config/agents.yaml'
 	tasks_config = 'config/tasks.yaml'
 
 	@agent
-	def joke_creator(self) -> Agent:
+	def data_extractor(self) -> Agent:
 		return Agent(
-			config=self.agents_config['joke_creator'],
+			config=self.agents_config['data_extractor'],
 			verbose=True,
+			knowledge_sources=[self.pdf_source],
+
 		)
 
 	@agent
-	def add_emojis(self) -> Agent:
+	def data_summarizer(self) -> Agent:
 		return Agent(
-			config=self.agents_config['add_emojis'],
+			config=self.agents_config['data_summarizer'],
 			verbose=True,
 		)
 
@@ -29,13 +36,13 @@ class Pdfresearchers:
 	@task
 	def research_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['joke_task'],
+			config=self.tasks_config['retrieve_data'],
 		)
 
 	@task
 	def reporting_task(self) -> Task:
 		return Task(
-			config=self.tasks_config['add_emopjis_task'],
+			config=self.tasks_config['summarize_data'],
 			output_file='report.md'
 		)
 
