@@ -1,11 +1,13 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
+from crewai.memory import LongTermMemory
+from crewai.memory.storage.ltm_sqlite_storage import LTMSQLiteStorage
 from dotenv import load_dotenv
 
 load_dotenv()
 @CrewBase
-class Pdfresearchers():
+class Pdfresearchers:
 	"""Pdfresearchers crew"""
 
 	pdf_source = PDFKnowledgeSource(
@@ -22,6 +24,7 @@ class Pdfresearchers():
 			config=self.agents_config['data_extractor'],
 			verbose=True,
 			knowledge_sources=[self.pdf_source],
+			
 
 		)
 
@@ -55,4 +58,5 @@ class Pdfresearchers():
 			tasks=self.tasks,
 			process=Process.sequential,
 			verbose=True,
+
 		)

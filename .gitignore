@@ -4,3 +4,4 @@ poetry.lock
 __pycache__/
 uv.lock
 report.md
+testcrew/memory.db
