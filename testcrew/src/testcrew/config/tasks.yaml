@@ -7,7 +7,11 @@ retrieve_data:
 
 summarize_data:
   description: >
-    Summarize the data extracted from the research task, which is relevant to the users question:{user_question}.
+    Summarize the data extracted from the research task
+    You also have to filter out the data which is not relevant to the user's question,
+    users question:{user_question}.
+    If there was no data found or the provided data is not relevant to the user's question,
+    then return a message "No data found".
      
   expected_output: >
     A list of summarized data using bulletpoints
