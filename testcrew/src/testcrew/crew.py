@@ -44,7 +44,6 @@ class Testcrew:
 	def reporting_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['summarize_data'],
-			output_file='report.md'
 		)
 
 	@crew
