@@ -7,8 +7,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 @CrewBase
-class Pdfresearchers:
-	"""Pdfresearchers crew"""
+class Testcrew:
+	"""Testcrew crew"""
 
 	pdf_source = PDFKnowledgeSource(
 		file_paths=["ca2-data.pdf", "ca7-pipe.pdf","ca9-caches.pdf"]
@@ -24,8 +24,6 @@ class Pdfresearchers:
 			config=self.agents_config['data_extractor'],
 			verbose=True,
 			knowledge_sources=[self.pdf_source],
-			
-
 		)
 
 	@agent
@@ -51,12 +49,19 @@ class Pdfresearchers:
 
 	@crew
 	def crew(self) -> Crew:
-		"""Creates the Pdfresearchers crew"""
+		"""Creates the Testcrew crew"""
 
 		return Crew(
 			agents=self.agents,
 			tasks=self.tasks,
 			process=Process.sequential,
 			verbose=True,
+			memory=True,
+			long_term_memory = LongTermMemory(
+				storage=LTMSQLiteStorage(
+						db_path="./db/long_term_memory_storage.db"
+					)
+			),
+
 
 		)
