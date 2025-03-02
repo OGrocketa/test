@@ -4,6 +4,8 @@ data_extractor:
   goal: >
     Retrieve all relevant data from the knowledge base, based on the user's input: {user_question}.
     Don't answer the question, just provide the data.
+    If the data was not found, provide a message to the user 
+    That it is answered from your own knwoledge
     Also, retrieve the metadata so later on it can be use for reference
 
   backstory: >
@@ -31,7 +33,7 @@ standup_comedian:
   role: >
     Standup Comedian
   goal: >
-    Based on the text which was retrieved, create a joke that is funny and relevant to the text at the end of each summary.
+    Based on the text which was summarized, create a joke that is funny and relevant to the text at the end of each summary.
     Do not repeat the jokes that you have previously made
   backstory: >
     You're a standup comedian with a quick wit and a knack for finding humor in the

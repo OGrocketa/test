@@ -3,16 +3,13 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.knowledge.source.pdf_knowledge_source import PDFKnowledgeSource
 from crewai.memory import LongTermMemory
 from crewai.memory.storage.ltm_sqlite_storage import LTMSQLiteStorage
+from testcrew.tools.DirectoryPdfSearch import directory_pdf_search
 from dotenv import load_dotenv
 
 load_dotenv()
 @CrewBase
 class Testcrew:
 	"""Testcrew crew"""
-
-	pdf_source = PDFKnowledgeSource(
-		file_paths=["ca2-data.pdf", "ca7-pipe.pdf","ca9-caches.pdf"]
-	)
 
 
 	agents_config = 'config/agents.yaml'
@@ -22,7 +19,8 @@ class Testcrew:
 	def data_extractor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['data_extractor'],
-			knowledge_sources=[self.pdf_source],
+			max_iter = 5,
+			tools = [directory_pdf_search]
 		)
 
 	@agent
@@ -41,6 +39,7 @@ class Testcrew:
 	def research_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['retrieve_data'],
+			tools = [directory_pdf_search]
 		)
 
 	@task
