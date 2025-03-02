@@ -17,3 +17,11 @@ summarize_data:
     A list of summarized data using bulletpoints
     formatted markdown without '```'
   agent: data_summarizer
+
+add_joke:
+  description: >
+    Based on the text which was retrieved, create a joke that is funny and relevant to the text at the end of each summary.
+    Do not repeat the jokes that you have previously made
+  expected_output: >
+    At the end of the retrieved text add a joke
+  agent: standup_comedian

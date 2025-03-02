@@ -22,7 +22,6 @@ class Testcrew:
 	def data_extractor(self) -> Agent:
 		return Agent(
 			config=self.agents_config['data_extractor'],
-			verbose=True,
 			knowledge_sources=[self.pdf_source],
 		)
 
@@ -30,10 +29,14 @@ class Testcrew:
 	def data_summarizer(self) -> Agent:
 		return Agent(
 			config=self.agents_config['data_summarizer'],
-			verbose=True,
 		)
 
-
+	@agent
+	def standup_comedian(self)->Agent:
+		return Agent(
+			config=self.agents_config['standup_comedian'],
+		)
+	
 	@task
 	def research_task(self) -> Task:
 		return Task(
@@ -44,6 +47,12 @@ class Testcrew:
 	def reporting_task(self) -> Task:
 		return Task(
 			config=self.tasks_config['summarize_data'],
+		)
+
+	@task
+	def add_joke(self)->Task:
+		return Task(
+			config=self.tasks_config['add_joke'],
 		)
 
 	@crew
